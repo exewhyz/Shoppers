@@ -4,6 +4,7 @@ import MainNav from "@/components/main-nav";
 import Container from "@/components/ui/container";
 import NavbarActions from "@/components/navbar-actions";
 import getCategories from "@/actions/get-categories";
+import { UserButton } from "@clerk/nextjs";
 
 const Navbar = async () => {
   const categories = await getCategories();
@@ -16,7 +17,10 @@ const Navbar = async () => {
             <p className="font-bold text-xl">SHOPPERSS</p>
           </Link>
           <MainNav data={categories} />
-          <NavbarActions />
+          <div className="ml-auto flex items-center space-x-4">
+            <NavbarActions />
+            <UserButton afterSignOutUrl="/" />
+          </div>
         </div>
       </Container>
     </div>
