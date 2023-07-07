@@ -49,7 +49,7 @@ const Menu = () => {
                                 userProfileUrl="/user-profile"
                                 afterSignOutUrl="/"
                             /> */}
-                            <Button onClick={() => router.push('/user-profile')}>
+                            <Button onClick={() => router.push('/profile')}>
                                 Profile
                             </Button>
                             <Button>
