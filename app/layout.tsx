@@ -7,7 +7,7 @@ import Footer from '@/components/footer'
 
 import './globals.css'
 
-const font = Urbanist({ subsets: ['latin'] })
+const font = Urbanist({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Shoppers',
