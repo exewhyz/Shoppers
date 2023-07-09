@@ -33,10 +33,8 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">Aditya</p>
-            <p className="text-xs leading-none text-muted-foreground">
-              araj52444@gmail.com
-            </p>
+            <p className="text-sm font-medium leading-none">{/* Aditya  */}User Name</p>
+            <p className="text-xs leading-none text-muted-foreground">{/* araj52444@gmail.com */}User Email</p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -46,19 +44,19 @@ export function UserNav() {
             <Link href='/profile'>
               Profile
             </Link>
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+            <DropdownMenuShortcut>Ctrl+P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <ShoppingBag className="mr-2 h-4 w-4" />
             <Link href='/cart'>
               Cart
             </Link>
-            <DropdownMenuShortcut>⌘C</DropdownMenuShortcut>
+            <DropdownMenuShortcut>Ctrl+C</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <CreditCard className="mr-2 h-4 w-4" />
             <span>Orders</span>
-            <DropdownMenuShortcut>⌘O</DropdownMenuShortcut>
+            <DropdownMenuShortcut>Ctrl+O</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
@@ -67,7 +65,7 @@ export function UserNav() {
           <SignOutButton>
             Log out
           </SignOutButton>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          <DropdownMenuShortcut>⇧+Ctrl+Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
