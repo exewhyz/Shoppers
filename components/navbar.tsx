@@ -1,13 +1,16 @@
+
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 
-import MainNav from "@/components/main-nav";
 import Container from "@/components/ui/container";
 import Menu from "@/components/menu";
 import NavbarActions from "@/components/navbar-actions";
+import MainNav from "./main-nav";
 import getCategories from "@/actions/get-categories";
+import { UserNav } from "./user-nav";
 
 const Navbar = async () => {
+
   const categories = await getCategories();
 
   return (
@@ -18,16 +21,13 @@ const Navbar = async () => {
             <p className="font-bold text-xl">SHOPPERSS</p>
           </Link>
           <MainNav data={categories} />
-          <Menu/>
-          {/* <div className="ml-auto sm:hidden flex items-center space-x-4 ">
-            <NavbarActions />
-            <UserButton
-              userProfileMode="navigation"
-              userProfileUrl="/user-profile"
-              afterSignOutUrl="/"
-            />
+          <div className="ml-auto lg:hidden">
+            <UserNav />
+          </div>
+          {/* <div className="md:hidden">
+            <Menu />
           </div> */}
-          <div className="ml-auto hidden sm:flex items-center space-x-4 ">
+          <div className="ml-auto hidden lg:flex items-center space-x-4 ">
             <NavbarActions />
             <UserButton
               showName

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AlignJustify, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
-import { SignOutButton, UserButton } from "@clerk/nextjs";
+import { SignOutButton } from "@clerk/nextjs";
 
 import IconButton from "@/components/ui/icon-button";
 import Button from "@/components/ui/button";
@@ -11,6 +11,7 @@ import NavbarActions from "@/components/navbar-actions";
 import { useRouter } from "next/navigation";
 
 const Menu = () => {
+
     const [open, setOpen] = useState(false);
 
     const onOpen = () => setOpen(true);
@@ -21,7 +22,7 @@ const Menu = () => {
         <>
             <Button
                 onClick={onOpen}
-                className="ml-auto bg-transparent text-black sm:hidden"
+                className="ml-auto bg-transparent text-black"
             >
                 <AlignJustify size={20} />
             </Button>
@@ -41,23 +42,16 @@ const Menu = () => {
                         </div>
 
                         <div className="flex flex-col gap-5 m-auto">
-                            {/* <CategoryNav/> */}
                             <NavbarActions />
-                            {/* <UserButton
-                                showName
-                                userProfileMode="navigation"
-                                userProfileUrl="/user-profile"
-                                afterSignOutUrl="/"
-                            /> */}
                             <Button onClick={() => router.push('/profile')}>
                                 Profile
                             </Button>
                             <Button>
                                 <SignOutButton />
                             </Button>
-                </div>
-            </Dialog.Panel>
-        </div >
+                        </div>
+                    </Dialog.Panel>
+                </div >
             </Dialog >
         </>
     );
