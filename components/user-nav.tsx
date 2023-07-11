@@ -14,27 +14,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Btn } from "@/components/ui/btn"
+import { currentUser } from "@clerk/nextjs"
 
-export function UserNav() {
+export async function UserNav() {
+
+  const user = await currentUser();
+  console.log(user)
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Btn variant="ghost" className="relative h-8 w-fit rounded-full ">
-          {/* <Avatar className="h-8 w-8"> */}
-          {/* <AvatarImage src="/favicon.ico" alt="Profile Image" /> */}
           <div className="flex items-center justify-center gap-x-2">
             <span>Menu</span>
-            <UserButton afterSignOutUrl="/" />
+            <Avatar className="h-8 w-8">
+              <AvatarImage src={user?.profileImageUrl} alt="Profile Image" />
+              <AvatarFallback>{user?.firstName}</AvatarFallback>
+            </Avatar>
           </div>
-          {/* <AvatarFallback>User</AvatarFallback> */}
-          {/* </Avatar> */}
         </Btn>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{/* Aditya  */}User Name</p>
-            <p className="text-xs leading-none text-muted-foreground">{/* araj52444@gmail.com */}User Email</p>
+            <p className="text-sm font-medium leading-none">{user?.firstName} {user?.lastName}</p>
+            <p className="text-xs leading-none text-muted-foreground">{user?.emailAddresses[0].emailAddress}</p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
