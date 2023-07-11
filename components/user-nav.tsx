@@ -1,6 +1,6 @@
 import { CreditCard, LogOut, ShoppingBag, User } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { SignOutButton, UserButton } from "@clerk/nextjs"
+import { SignOutButton } from "@clerk/nextjs"
 import Link from "next/link"
 
 import {
