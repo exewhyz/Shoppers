@@ -3,10 +3,11 @@ export interface Product {
   category: Category;
   name: string;
   price: string;
+  productDescription: String;
   isFeatured: boolean;
   size: Size;
   color: Color;
-  images: Image[]
+  images: Image[];
 };
 
 export interface Image {
