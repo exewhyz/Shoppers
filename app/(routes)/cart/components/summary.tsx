@@ -33,17 +33,19 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
-    const products = await getProducts({});
+    const products = await getProducts({
+      isArchieved: false,
+    });
     const checked = checkItems(products);
-    if (!checked) {
+    if (checked) {
+      toast.error('Please check your cart and continue to checkout again'); 
+    }
+    else {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
         productIds: items.map((item) => item.id)
       });
 
       window.location = response.data.url;
-    }
-    else {
-      toast.error('Please check your cart and continue to checkout again');
     }
   }
 
