@@ -19,7 +19,6 @@ import { currentUser } from "@clerk/nextjs"
 export async function UserNav() {
 
   const user = await currentUser();
-  console.log(user)
 
   return (
     <DropdownMenu>

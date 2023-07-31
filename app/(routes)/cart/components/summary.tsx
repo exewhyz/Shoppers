@@ -8,13 +8,13 @@ import Button from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
-import getProducts from "@/actions/get-products";
+// import getProducts from "@/actions/get-products";
 
 const Summary = () => {
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
-  const checkItems = useCart((state) => state.checkItems);
+  // const checkItems = useCart((state) => state.checkItems);
 
 
   useEffect(() => {
@@ -33,20 +33,20 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
-    const products = await getProducts({
-      isArchieved: false,
-    });
-    const checked = checkItems(products);
-    if (checked) {
-      toast.error('Please check your cart and continue to checkout again'); 
-    }
-    else {
+    // const products = await getProducts({
+    //   isArchieved: false,
+    // });
+    // const checked = checkItems(products);
+    // if (checked) {
+    //   toast.error('Please check your cart and continue to checkout again'); 
+    // }
+    // else {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
         productIds: items.map((item) => item.id)
       });
 
       window.location = response.data.url;
-    }
+    // }
   }
 
   return (
